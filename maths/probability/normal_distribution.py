@@ -16,7 +16,7 @@ ax = sns.distplot(data_normal,
                   bins=100,
                   kde=False,
                   color='skyblue',
-                  hist_kws={"linewidth": 15,'alpha':1})
+                  hist_kws={'alpha':1})
 ax.set(xlabel='Normal', ylabel='Frequency')
 
 plt.show()
