@@ -43,11 +43,3 @@ window = shifted.rolling(window=width)
 dataframe = concat([window.min(), window.mean(), window.max(), temps], axis=1)
 dataframe.columns = ['min', 'mean', 'max', 't+1']
 print(dataframe.head(5))
-'''
-#Expanding window and statistics
-print('Expanding window and statistics')
-window = temps.expanding()
-dataframe = concat([window.min(), window.mean(), window.max(), temps.shift(-1)], axis=1)
-dataframe.columns = ['min', 'mean', 'max', 't+1']
-print(dataframe.head(5))
-'''
