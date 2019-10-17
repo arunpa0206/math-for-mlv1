@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+
 from sklearn import linear_model
 import numpy as np
 from sklearn.metrics import mean_squared_error
@@ -13,15 +13,18 @@ def newsample(xTest, ytest, model):
         reg = linear_model.LinearRegression()
         reg.fit(x,y)
         print('least square Coefficients: \n', reg.coef_)
+        print('intercept:', reg.intercept_)
     if model == 2:
         reg = linear_model.Ridge (alpha = 0.1)
         reg.fit(x,y)
-        print('ridged Coefficients: \n', ridge.coef_)
-    if model == 3:    
+        print('ridged Coefficients: \n', reg.coef_)
+        print('intercept:', reg.intercept_)
+    if model == 3:
         reg = linear_model.Lasso(alpha = 0.1)
         reg.fit(x,y)
-        print('lasso Coefficients: \n', ridge.coef_)
-        
+        print('lasso Coefficients: \n', reg.coef_)
+        print('intercept:', reg.intercept_)
+
     preds = reg.predict(xTest)
 
     er = []
@@ -32,21 +35,9 @@ def newsample(xTest, ytest, model):
 
     v = np.var(er)
     print ("variance", v)
-   
+
     print("Mean squared error (bias): %.2f" % mean_squared_error(ytest,preds))
-
-    tst = preprocessing.scale(ytest)
-    prd = preprocessing.scale(preds)
-    plt.plot(tst, prd, 'g^')
-    
-    x1 = preprocessing.scale(xTest)
-    fx = preprocessing.scale(xTest * reg.coef_)
-
-    plt.plot(x1,fx )
-    plt.show()
-
 
 a = np.array([[4],[5],[6]])
 b = np.array([[8.8],[14],[17]])
-newsample(a,b, 1)
-
+newsample(a,b, 3)
