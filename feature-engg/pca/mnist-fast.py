@@ -1,5 +1,7 @@
-from sklearn.datasets import fetch_mldata
-mnist = fetch_mldata('MNIST original')
+#from sklearn.datasets import fetch_mldata
+#mnist = fetch_mldata('MNIST original')
+from sklearn.datasets import fetch_openml
+mnist = fetch_openml('mnist_784')
 
 from sklearn.model_selection import train_test_split
 # test_size: what proportion of original data is used for test set
