@@ -15,7 +15,7 @@ def newt(x,n):
 
 def main(argv):
         if (len(sys.argv) != 3):
-                sys.exit('Usage: newtons_method.py <x> <n>')
+                sys.exit('Usage: newtons_raphson.py <x> <n>')
         print('The root is: ')
         print (newt(float(sys.argv[1]),int(sys.argv[2])))
 if __name__ == "__main__":
